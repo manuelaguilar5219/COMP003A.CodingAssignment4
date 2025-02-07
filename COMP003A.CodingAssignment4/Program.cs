@@ -50,16 +50,32 @@
                         case 2:
                             Console.WriteLine("Enter the product name: ");
                             int index = Array.IndexOf(productNames, Console.ReadLine());
-                            if (index != 1)
+                            if (index != -1)
                             {
                                 Console.WriteLine("Enter new product quantity: ");
                                 productQuantities[index] = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Prodcut quantity changed successfully");
                             }
                             else
                             {
                                 Console.WriteLine("Product not found");
                             }
                             break;
+                        case 3:
+                            double quantitySum = 0;
+                            Console.WriteLine("Inventory summary:");
+                            for (int i = 0; i < count; i++)
+                            {
+                                    Console.WriteLine($"-{productNames[i]}: {productQuantities[i]} ");
+                                    quantitySum += productQuantities[i];
+                            }
+                            Console.WriteLine($"Total Products: {count}");
+                            Console.WriteLine($"Total Quantity: {quantitySum}");
+                            double averageQuantities = quantitySum / count;
+                            Console.WriteLine($"Average Quantity: {averageQuantities}");
+                            break;
+                        case 4:
+                            return;
                     }
                 }
             }
